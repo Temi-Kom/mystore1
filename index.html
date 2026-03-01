@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IyanuOluwa Medicine Store</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#22c55e',  // Green like Talabat
+            secondary: '#ef4444',  // Red for accents
+          },
+        },
+      },
+    }
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .category-header { background-color: #f3f4f6; }
+    .product-card { transition: transform 0.2s ease-in-out; }
+    .product-card:hover { transform: scale(1.03); }
+  </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+  <!-- Header -->
+  <header class="bg-primary text-white py-4 shadow-md fixed w-full z-10">
+    <div class="container mx-auto px-4 flex items-center justify-between">
+      <h1 class="text-2xl font-bold">IyanuOluwa Medicine Store</h1>
+      <div class="relative">
+        <button id="cart-icon" class="flex items-center text-white">
+          <i class="fas fa-shopping-cart mr-2"></i>
+          <span id="cart-count" class="bg-secondary text-white text-xs font-bold rounded-full px-2 py-1">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mx-auto px-4 pt-20 pb-8">
+    <div class="text-center mb-8">
+      <p class="text-gray-600">Your trusted medicine and grocery store in [Your State, Nigeria]</p>
+    </div>
+
+    <!-- Categories & Products -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold mb-6 text-primary">Our Products</h2>
+
+      <div class="space-y-8">
+        <!-- Common Medicines -->
+        <div class="category-header p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-4 text-primary">Common Medicines</h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <div class="product-card bg-white p-4 rounded-lg shadow-md hover:shadow-xl">
+              <h4 class="font-medium text-lg">Paracetamol (Panadol)</h4>
+              <p class="text-sm text-gray-600">Pain relief & fever</p>
+              <p class="text-lg font-bold mt-2 text-primary">#500</p>
+              <button class="mt-4 w-full bg-primary text-white py-2 rounded hover:bg-green-600 add-to-cart" data-name="Paracetamol (Panadol)" data-price="500">Add to Cart</button>
+            </div>
+            <div class="product-card bg-white p-4 rounded-lg shadow-md hover:shadow-xl">
+              <h4 class="font-medium text-lg">Ibuprofen</h4>
+              <p class="text-sm text-gray-600">Anti-inflammatory & pain</p>
+              <p class="text-lg font-bold mt-2 text-primary">#800</p>
+              <button class="mt-4 w-full bg-primary text-white py-2 rounded hover:bg-green-600 add-to-cart" data-name="Ibuprofen" data-price="800">Add to Cart</button>
+            </div>
+            <div class="product-card bg-white p-4 rounded-lg shadow-md hover:shadow-xl">
+              <h4 class="font-medium text-lg">Amoxicillin Capsule</h4>
+              <p class="text-sm text-gray-600">Antibiotic</p>
+              <p class="text-lg font-bold mt-2 text-primary">#1200</p>
+              <button class="mt-4 w-full bg-primary text-white py-2 rounded hover:bg-green-600 add-to-cart" data-name="Amoxicillin Capsule" data-price="1200">Add to Cart</button>
+            </div>
+            <div class="product-card bg-white p-4 rounded-lg shadow-md hover:shadow-xl">
+              <h4 class="font-medium text-lg">Cough Syrup (Benylin)</h4>
+              <p class="text-sm text-gray-600">For dry cough</p>
+              <p class="text-lg font-bold mt-2 text-primary">#1500</p>
+              <button class="mt-4 w-full bg-primary text-white py-2 rounded hover:bg-green-600 add-to-cart" data-name="Cough Syrup (Benylin)" data-price="1500">Add to Cart</button>
+            </div>
+            <div class="product-card bg-white p-4 rounded-lg shadow-md hover:shadow-xl">
+              <h4 class="font-medium text-lg">Antacid (Gaviscon)</h4>
+              <p class="text-sm text-gray-600">Heartburn relief</p>
+              <p class="text-lg font-bold mt-2 text-primary">#900</p>
+              <button class="mt-4 w-full bg-primary text-white py-2 rounded hover:bg-green-600 add-to-cart" data-name="Antacid (Gaviscon)" data-price="900">Add to Cart</button>
+            </div>
+            <div class="product-card bg-white p-4 rounded-lg shadow-md hover:shadow-xl">
+              <h4 class="font-medium text-lg">Vitamin C Tablets</h4>
+              <p class="text-sm text-gray-600">Immune support</p>
+              <p class="text-lg font-bold mt-2 text-primary">#600</p>
+              <button class="mt-4 w-full bg-primary text-white py-2 rounded hover:bg-green-600 add-to-cart" data-name="Vitamin C Tablets" data-price="600">Add to Cart</button>
+            </div>
+            <div class="product-card bg-white p-4 rounded-lg shadow-md hover:shadow-xl">
+              <h4 class="font-medium text-lg">Pain Relief Syrup (Calpol)</h4>
+              <p class="text-sm text-gray-600">For children</p>
+              <p class="text-lg font-bold mt-2 text-primary">#1000</p>
+              <button class="mt-4 w-full bg-primary text-white py-2 rounded hover:bg-green-600 add-to-cart" data-name="Pain Relief Syrup (Calpol)" data-price="1000">Add to Cart</button>
+            </div>
+            <div class="product-card bg-white p-4 rounded-lg shadow-md hover:shadow-xl">
+              <h4 class="font-medium text-lg">Multivitamins (Centrum)</h4>
+              <p class="text-sm text-gray-600">Daily supplement</p>
+              <p class="text-lg font-bold mt-2 text-primary">#2500</p>
+              <button class="mt-4 w-full bg-primary text-white py-2 rounded hover:bg-green-600 add-to-cart" data-name="Multivitamins (Centrum)" data-price="2500">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Water -->
+        <div class="category-header p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-4">Water</h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <div class="product-card bg-white p-4 rounded-lg shadow-md hover:shadow-xl">
+              <h4 class="font-medium text-lg">Sachet Water (Pack of 20)</h4>
+              <p class="text-sm text-gray-600">Pure water</p>
+              <p class="text-lg font-bold mt-2 text-primary">#200</p>
+              <button class="mt-4 w-full bg-primary text-white py-2 rounded hover:bg-green-600 add-to-cart" data-name="Sachet Water (Pack of 20)" data-price="200">Add to Cart</button>
+            </div>
+            <div class="product-card bg-white p-4 rounded-lg shadow-md hover:shadow-xl">
+              <h4 class="font-medium text-lg">Bottled Water (1.5L)</h4>
+              <p class="text-sm text-gray-600">Eva or similar</p>
+              <p class="text-lg font-bold mt-2 text-primary">#150</p>
+              <button class="mt-4 w-full bg-primary text-white py-2 rounded hover:bg-green-600 add-to-cart" data-name="Bottled Water (1.5L)" data-price="150">Add to Cart</button>
+            </div>
+            <div class="product-card bg-white p-4 rounded-lg shadow-md hover:shadow-xl">
+              <h4 class="font-medium text-lg">Dispenser Water (20L)</h4>
+              <p class="text-sm text-gray-600">Refill</p>
+              <p class="text-lg font-bold mt-2 text-primary">#500</p>
+              <button class="mt-4 w-full bg-primary text-white py-2 rounded hover:bg-green-600 add-to-cart" data-name="Dispenser Water (20L)" data-price="500">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Snacks -->
+        <div class="category-header p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-4">Snacks</h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <div class="product-card bg-white p-4 rounded-lg shadow-md hover:shadow-xl">
+              <h4 class="font-medium text-lg">Potato Chips (Large Pack)</h4>
+              <p class="text-sm text-gray-600">Lays or similar</p>
+              <p class="text-lg font-bold mt-2 text-primary">#300</p>
+              <button class="mt-4 w-full bg-primary text-white py-2 rounded hover:bg-green-600 add-to-cart" data-name="Potato Chips (Large Pack)" data-price="300">Add to Cart</button>
+            </div>
+            <div class="product-card bg-white p-4 rounded-lg shadow-md hover:shadow-xl">
+              <h4 class="font-medium text-lg">Biscuits (Family Pack)</h4>
+              <p class="text-sm text-gray-600">McVities or similar</p>
+              <p class="text-lg font-bold mt-2 text-primary">#500</p>
+              <button class="mt-4 w-full bg-primary text-white py-2 rounded hover:bg-green-600 add-to-cart" data-name="Biscuits (Family Pack)" data-price="500">Add to Cart</button>
+            </div>
+            <div class="product-card bg-white p-4 rounded-lg shadow-md hover:shadow-xl">
+              <h4 class="font-medium text-lg">Popcorn (Microwave Pack)</h4>
+              <p class="text-sm text-gray-600">Butter flavor</p>
+              <p class="text-lg font-bold mt-2 text-primary">#250</p>
+              <button class="mt-4 w-full bg-primary text-white py-2 rounded hover:bg-green-600 add-to-cart" data-name="Popcorn (Microwave Pack)" data-price="250">Add to Cart</button>
+            </div>
+            <div class="product-card bg-white p-4 rounded-lg shadow-md hover:shadow-xl">
+              <h4 class="font-medium text-lg">Plantain Chips</h4>
+              <p class="text-sm text-gray-600">Spicy</p>
+              <p class="text-lg font-bold mt-2 text-primary">#200</p>
+              <button class="mt-4 w-full bg-primary text-white py-2 rounded hover:bg-green-600 add-to-cart" data-name="Plantain Chips" data-price="200">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bread -->
+        <div class="category-header p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-4">Bread</h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <div class="product-card bg-white p-4 rounded-lg shadow-md hover:shadow-xl">
+              <h4 class="font-medium text-lg">Sliced Bread (Large)</h4>
+              <p class="text-sm text-gray-600">Top Crust or similar</p>
+              <p class="text-lg font-bold mt-2 text-primary">#800</p>
+              <button class="mt-4 w-full bg-primary text-white py-2 rounded hover:bg-green-600 add-to-cart" data-name="Sliced Bread (Large)" data-price="800">Add to Cart</button>
+            </div>
+            <div class="product-card bg-white p-4 rounded-lg shadow-md hover:shadow-xl">
+              <h4 class="font-medium text-lg">Agege Bread</h4>
+              <p class="text-sm text-gray-600">Fresh baked</p>
+              <p class="text-lg font-bold mt-2 text-primary">#1200</p>
+              <button class="mt-4 w-full bg-primary text-white py-2 rounded hover:bg-green-600 add-to-cart" data-name="Agege Bread" data-price="1200">Add to Cart</button>
+            </div>
+            <div class="product-card bg-white p-4 rounded-lg shadow-md hover:shadow-xl">
+              <h4 class="font-medium text-lg">Whole Wheat Bread</h4>
+              <p class="text-sm text-gray-600">Healthy option</p>
+              <p class="text-lg font-bold mt-2 text-primary">#1000</p>
+              <button class="mt-4 w-full bg-primary text-white py-2 rounded hover:bg-green-600 add-to-cart" data-name="Whole Wheat Bread" data-price="1000">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sweets -->
+        <div class="category-header p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-4">Sweets</h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <div class="product-card bg-white p-4 rounded-lg shadow-md hover:shadow-xl">
+              <h4 class="font-medium text-lg">Chocolate Bar (Cadbury)</h4>
+              <p class="text-sm text-gray-600">Dairy Milk</p>
+              <p class="text-lg font-bold mt-2 text-primary">#300</p>
+              <button class="mt-4 w-full bg-primary text-white py-2 rounded hover:bg-green-600 add-to-cart" data-name="Chocolate Bar (Cadbury)" data-price="300">Add to Cart</button>
+            </div>
+            <div class="product-card bg-white p-4 rounded-lg shadow-md hover:shadow-xl">
+              <h4 class="font-medium text-lg">Candies (Pack)</h4>
+              <p class="text-sm text-gray-600">Assorted flavors</p>
+              <p class="text-lg font-bold mt-2 text-primary">#150</p>
+              <button class="mt-4 w-full bg-primary text-white py-2 rounded hover:bg-green-600 add-to-cart" data-name="Candies (Pack)" data-price="150">Add to Cart</button>
+            </div>
+            <div class="product-card bg-white p-4 rounded-lg shadow-md hover:shadow-xl">
+              <h4 class="font-medium text-lg">Lollipops (Pack of 10)</h4>
+              <p class="text-sm text-gray-600">Fruit flavors</p>
+              <p class="text-lg font-bold mt-2 text-primary">#100</p>
+              <button class="mt-4 w-full bg-primary text-white py-2 rounded hover:bg-green-600 add-to-cart" data-name="Lollipops (Pack of 10)" data-price="100">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cart Section -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold mb-6 text-primary">Your Cart</h2>
+      <div id="cart-items" class="space-y-4">
+        <p id="cart-empty" class="text-center text-gray-500">Your cart is empty</p>
+      </div>
+      <div class="mt-6 text-right">
+        <p class="text-xl font-bold">Total: <span id="cart-total"># 0</span></p>
+        <button id="checkout-btn" class="mt-4 bg-primary text-white py-3 px-6 rounded hover:bg-green-600 disabled:opacity-50" disabled>
+          Proceed to Checkout
+        </button>
+      </div>
+    </section>
+
+    <!-- Checkout Modal -->
+    <div id="checkout-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
+      <div class="bg-white p-8 rounded-lg max-w-lg w-full">
+        <h2 class="text-2xl font-bold mb-6 text-primary">Checkout</h2>
+        <div id="cart-summary" class="mb-6"></div>
+        <p class="text-xl font-bold mb-4">Total: <span id="modal-total"># 0</span></p>
+        <label class="block mb-2">Delivery Address</label>
+        <input type="text" id="address" class="w-full p-2 border rounded mb-4" placeholder="Enter your full address">
+        <label class="block mb-2">Note to Vendor (optional)</label>
+        <textarea id="note" class="w-full p-2 border rounded mb-6" placeholder="Any special instructions..."></textarea>
+        <div class="flex justify-end space-x-4">
+          <button id="cancel-checkout" class="bg-gray-500 text-white py-2 px-4 rounded">Cancel</button>
+          <button id="confirm-order" class="bg-primary text-white py-2 px-4 rounded">Place Order</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    function updateCart() {
+      const cartItems = document.getElementById('cart-items');
+      const cartEmpty = document.getElementById('cart-empty');
+      const cartTotal = document.getElementById('cart-total');
+      const checkoutBtn = document.getElementById('checkout-btn');
+      const cartCount = document.getElementById('cart-count');
+
+      if (cart.length === 0) {
+        cartEmpty.style.display = 'block';
+        cartItems.innerHTML = '';
+        cartTotal.textContent = '# 0';
+        checkoutBtn.disabled = true;
+        cartCount.textContent = '0';
+      } else {
+        cartEmpty.style.display = 'none';
+        cartItems.innerHTML = '';
+        let total = 0;
+        let count = 0;
+        cart.forEach(item => {
+          total += item.price * item.quantity;
+          count += item.quantity;
+          const itemDiv = document.createElement('div');
+          itemDiv.className = 'flex justify-between items-center bg-gray-100 p-3 rounded';
+          itemDiv.innerHTML = `
+            <span>${item.name} x ${item.quantity}</span>
+            <span># ${(item.price * item.quantity).toLocaleString()}</span>
+            <button class="text-secondary" onclick="removeFromCart('${item.name}')">Remove</button>
+          `;
+          cartItems.appendChild(itemDiv);
+        });
+        cartTotal.textContent = `# ${total.toLocaleString()}`;
+        checkoutBtn.disabled = false;
+        cartCount.textContent = count;
+      }
+      localStorage.setItem('cart', JSON.stringify(cart));
+    }
+
+    function addToCart(name, price) {
+      const existing = cart.find(item => item.name === name);
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        cart.push({ name, price, quantity: 1 });
+      }
+      updateCart();
+    }
+
+    function removeFromCart(name) {
+      cart = cart.filter(item => item.name !== name);
+      updateCart();
+    }
+
+    document.querySelectorAll('.add-to-cart').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const name = btn.dataset.name;
+        const price = parseFloat(btn.dataset.price);
+        addToCart(name, price);
+      });
+    });
+
+    document.getElementById('checkout-btn').addEventListener('click', () => {
+      document.getElementById('checkout-modal').classList.remove('hidden');
+      document.getElementById('cart-summary').innerHTML = document.getElementById('cart-items').innerHTML;
+      document.getElementById('modal-total').textContent = document.getElementById('cart-total').textContent;
+    });
+
+    document.getElementById('cancel-checkout').addEventListener('click', () => {
+      document.getElementById('checkout-modal').classList.add('hidden');
+    });
+
+    document.getElementById('confirm-order').addEventListener('click', () => {
+      const address = document.getElementById('address').value.trim();
+      const note = document.getElementById('note').value.trim();
+
+      if (!address) {
+        alert('Please enter delivery address');
+        return;
+      }
+
+      // POST to your backend /orders/
+      fetch('http://34.35.184.187:8000/orders', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + localStorage.getItem('token') // if you have token
+        },
+        body: JSON.stringify({
+          vendor_id: 12, // replace with your vendor ID
+          total_amount: parseFloat(document.getElementById('modal-total').textContent.replace('# ', '').replace(',', '')),
+          delivery_lat: 6.5244, // Lagos example
+          delivery_lon: 3.3792,
+          note: note || 'No note',
+          items: cart.map(item => ({
+            product_id: item.id || 1, // stub
+            quantity: item.quantity,
+            price: item.price,
+          }))
+        })
+      })
+      .then(res => res.json())
+      .then(data => {
+        alert('Order placed successfully! Order ID: ' + data.order_id);
+        cart = [];
+        updateCart();
+        document.getElementById('checkout-modal').classList.add('hidden');
+      })
+      .catch(err => alert('Failed to place order: ' + err.message));
+    });
+
+    updateCart(); // initial load
+  </script>
+</body>
+</html>
