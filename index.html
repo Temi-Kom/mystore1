@@ -17,41 +17,64 @@
       },
     }
   </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
   <style>
     body { font-family: 'Inter', sans-serif; }
-    .category-header { background-color: #f3f4f6; }
+    .category-header { background-color: #f0f9ff; }
     .product-card { transition: transform 0.2s ease-in-out; }
     .product-card:hover { transform: scale(1.03); }
   </style>
 </head>
-<body class="bg-gray-50 min-h-screen">
+<body class="bg-gray-100 min-h-screen">
   <!-- Header -->
-  <header class="bg-primary text-white py-4 shadow-md fixed w-full z-10">
+  <header class="bg-primary text-white py-4 shadow-md fixed w-full z-20">
     <div class="container mx-auto px-4 flex items-center justify-between">
       <h1 class="text-2xl font-bold">IyanuOluwa Medicine Store</h1>
-      <div class="relative">
-        <button id="cart-icon" class="flex items-center text-white">
-          <i class="fas fa-shopping-cart mr-2"></i>
-          <span id="cart-count" class="bg-secondary text-white text-xs font-bold rounded-full px-2 py-1">0</span>
+      <div class="flex items-center space-x-4">
+        <button id="menu-btn" class="text-white focus:outline-none">
+          <i class="fas fa-bars text-xl"></i>
         </button>
+        <div class="relative">
+          <button id="cart-icon" class="flex items-center text-white">
+            <i class="fas fa-shopping-cart mr-2"></i>
+            <span id="cart-count" class="bg-secondary text-white text-xs font-bold rounded-full px-2 py-1">0</span>
+          </button>
+        </div>
       </div>
     </div>
   </header>
 
+  <!-- Menu Drawer -->
+  <div id="menu-drawer" class="fixed left-0 top-0 h-full w-64 bg-white shadow-lg transform -translate-x-full transition-transform z-30">
+    <div class="p-4 border-b">
+      <h2 class="text-xl font-bold">Categories</h2>
+      <button id="close-menu" class="absolute top-4 right-4 text-gray-500">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <ul class="p-4 space-y-4">
+      <li><a href="#common-medicines" class="text-primary hover:underline">Common Medicines</a></li>
+      <li><a href="#water" class="text-primary hover:underline">Water</a></li>
+      <li><a href="#snacks" class="text-primary hover:underline">Snacks</a></li>
+      <li><a href="#bread" class="text-primary hover:underline">Bread</a></li>
+      <li><a href="#sweets" class="text-primary hover:underline">Sweets</a></li>
+    </ul>
+  </div>
+
   <!-- Main Content -->
   <main class="container mx-auto px-4 pt-20 pb-8">
     <div class="text-center mb-8">
-      <p class="text-gray-600">Your trusted medicine and grocery store in [Ekiti State, Nigeria]</p>
+      <p class="text-gray-600">Your trusted pharmacy & grocery store in [Your State, Nigeria]</p>
     </div>
 
     <!-- Categories & Products -->
     <section class="mb-12">
-      <h2 class="text-2xl font-bold mb-6 text-primary">Our Products</h2>
+      <h2 class="text-2xl font-bold mb-6 text-center text-primary">Our Products</h2>
 
-      <div class="space-y-8">
+      <div class="space-y-12">
         <!-- Common Medicines -->
-        <div class="category-header p-6 rounded-lg shadow-md">
+        <div id="common-medicines" class="category-header p-6 rounded-lg shadow-md">
           <h3 class="text-xl font-semibold mb-4 text-primary">Common Medicines</h3>
           <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
             <div class="product-card bg-white p-4 rounded-lg shadow-md hover:shadow-xl">
@@ -102,11 +125,23 @@
               <p class="text-lg font-bold mt-2 text-primary">#2500</p>
               <button class="mt-4 w-full bg-primary text-white py-2 rounded hover:bg-green-600 add-to-cart" data-name="Multivitamins (Centrum)" data-price="2500">Add to Cart</button>
             </div>
+            <div class="product-card bg-white p-4 rounded-lg shadow-md hover:shadow-xl">
+              <h4 class="font-medium text-lg">Malaria Tablets (Coartem)</h4>
+              <p class="text-sm text-gray-600">Anti-malarial</p>
+              <p class="text-lg font-bold mt-2 text-primary">#2000</p>
+              <button class="mt-4 w-full bg-primary text-white py-2 rounded hover:bg-green-600 add-to-cart" data-name="Malaria Tablets (Coartem)" data-price="2000">Add to Cart</button>
+            </div>
+            <div class="product-card bg-white p-4 rounded-lg shadow-md hover:shadow-xl">
+              <h4 class="font-medium text-lg">Antibiotics (Augmentin)</h4>
+              <p class="text-sm text-gray-600">Broad spectrum</p>
+              <p class="text-lg font-bold mt-2 text-primary">#3000</p>
+              <button class="mt-4 w-full bg-primary text-white py-2 rounded hover:bg-green-600 add-to-cart" data-name="Antibiotics (Augmentin)" data-price="3000">Add to Cart</button>
+            </div>
           </div>
         </div>
 
         <!-- Water -->
-        <div class="category-header p-6 rounded-lg shadow-md">
+        <div id="water" class="category-header p-6 rounded-lg shadow-md">
           <h3 class="text-xl font-semibold mb-4">Water</h3>
           <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
             <div class="product-card bg-white p-4 rounded-lg shadow-md hover:shadow-xl">
@@ -122,16 +157,16 @@
               <button class="mt-4 w-full bg-primary text-white py-2 rounded hover:bg-green-600 add-to-cart" data-name="Bottled Water (1.5L)" data-price="150">Add to Cart</button>
             </div>
             <div class="product-card bg-white p-4 rounded-lg shadow-md hover:shadow-xl">
-              <h4 class="font-medium text-lg">Dispenser Water (20L)</h4>
-              <p class="text-sm text-gray-600">Refill</p>
+              <h4 class="font-medium text-lg">Mineral Water (Pack of 6)</h4>
+              <p class="text-sm text-gray-600">Dasani or similar</p>
               <p class="text-lg font-bold mt-2 text-primary">#500</p>
-              <button class="mt-4 w-full bg-primary text-white py-2 rounded hover:bg-green-600 add-to-cart" data-name="Dispenser Water (20L)" data-price="500">Add to Cart</button>
+              <button class="mt-4 w-full bg-primary text-white py-2 rounded hover:bg-green-600 add-to-cart" data-name="Mineral Water (Pack of 6)" data-price="500">Add to Cart</button>
             </div>
           </div>
         </div>
 
         <!-- Snacks -->
-        <div class="category-header p-6 rounded-lg shadow-md">
+        <div id="snacks" class="category-header p-6 rounded-lg shadow-md">
           <h3 class="text-xl font-semibold mb-4">Snacks</h3>
           <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
             <div class="product-card bg-white p-4 rounded-lg shadow-md hover:shadow-xl">
@@ -158,11 +193,17 @@
               <p class="text-lg font-bold mt-2 text-primary">#200</p>
               <button class="mt-4 w-full bg-primary text-white py-2 rounded hover:bg-green-600 add-to-cart" data-name="Plantain Chips" data-price="200">Add to Cart</button>
             </div>
+            <div class="product-card bg-white p-4 rounded-lg shadow-md hover:shadow-xl">
+              <h4 class="font-medium text-lg">Chin Chin (Pack)</h4>
+              <p class="text-sm text-gray-600">Sweet snack</p>
+              <p class="text-lg font-bold mt-2 text-primary">#150</p>
+              <button class="mt-4 w-full bg-primary text-white py-2 rounded hover:bg-green-600 add-to-cart" data-name="Chin Chin (Pack)" data-price="150">Add to Cart</button>
+            </div>
           </div>
         </div>
 
         <!-- Bread -->
-        <div class="category-header p-6 rounded-lg shadow-md">
+        <div id="bread" class="category-header p-6 rounded-lg shadow-md">
           <h3 class="text-xl font-semibold mb-4">Bread</h3>
           <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
             <div class="product-card bg-white p-4 rounded-lg shadow-md hover:shadow-xl">
@@ -183,11 +224,17 @@
               <p class="text-lg font-bold mt-2 text-primary">#1000</p>
               <button class="mt-4 w-full bg-primary text-white py-2 rounded hover:bg-green-600 add-to-cart" data-name="Whole Wheat Bread" data-price="1000">Add to Cart</button>
             </div>
+            <div class="product-card bg-white p-4 rounded-lg shadow-md hover:shadow-xl">
+              <h4 class="font-medium text-lg">Coconut Bread</h4>
+              <p class="text-sm text-gray-600">Sweet flavor</p>
+              <p class="text-lg font-bold mt-2 text-primary">#600</p>
+              <button class="mt-4 w-full bg-primary text-white py-2 rounded hover:bg-green-600 add-to-cart" data-name="Coconut Bread" data-price="600">Add to Cart</button>
+            </div>
           </div>
         </div>
 
         <!-- Sweets -->
-        <div class="category-header p-6 rounded-lg shadow-md">
+        <div id="sweets" class="category-header p-6 rounded-lg shadow-md">
           <h3 class="text-xl font-semibold mb-4">Sweets</h3>
           <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
             <div class="product-card bg-white p-4 rounded-lg shadow-md hover:shadow-xl">
@@ -208,42 +255,55 @@
               <p class="text-lg font-bold mt-2 text-primary">#100</p>
               <button class="mt-4 w-full bg-primary text-white py-2 rounded hover:bg-green-600 add-to-cart" data-name="Lollipops (Pack of 10)" data-price="100">Add to Cart</button>
             </div>
+            <div class="product-card bg-white p-4 rounded-lg shadow-md hover:shadow-xl">
+              <h4 class="font-medium text-lg">Gum (Pack)</h4>
+              <p class="text-sm text-gray-600">Mint flavor</p>
+              <p class="text-lg font-bold mt-2 text-primary">#200</p>
+              <button class="mt-4 w-full bg-primary text-white py-2 rounded hover:bg-green-600 add-to-cart" data-name="Gum (Pack)" data-price="200">Add to Cart</button>
+            </div>
           </div>
         </div>
       </div>
     </section>
+  </main>
 
-    <!-- Cart Section -->
-    <section class="mb-12">
-      <h2 class="text-2xl font-bold mb-6 text-primary">Your Cart</h2>
+  <!-- Cart Drawer -->
+  <div id="cart-drawer" class="fixed right-0 top-0 h-full w-80 bg-white shadow-lg transform translate-x-full transition-transform z-30 overflow-y-auto">
+    <div class="p-4 border-b relative">
+      <h2 class="text-xl font-bold">Your Cart</h2>
+      <button id="close-cart" class="absolute top-4 right-4 text-gray-500">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="p-4">
       <div id="cart-items" class="space-y-4">
         <p id="cart-empty" class="text-center text-gray-500">Your cart is empty</p>
       </div>
       <div class="mt-6 text-right">
         <p class="text-xl font-bold">Total: <span id="cart-total"># 0</span></p>
-        <button id="checkout-btn" class="mt-4 bg-primary text-white py-3 px-6 rounded hover:bg-green-600 disabled:opacity-50" disabled>
+        <button id="checkout-btn" class="mt-4 w-full bg-primary text-white py-3 rounded hover:bg-green-600 disabled:opacity-50" disabled>
           Proceed to Checkout
         </button>
       </div>
-    </section>
+    </div>
+  </div>
 
-    <!-- Checkout Modal -->
-    <div id="checkout-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
-      <div class="bg-white p-8 rounded-lg max-w-lg w-full">
-        <h2 class="text-2xl font-bold mb-6 text-primary">Checkout</h2>
-        <div id="cart-summary" class="mb-6"></div>
-        <p class="text-xl font-bold mb-4">Total: <span id="modal-total"># 0</span></p>
-        <label class="block mb-2">Delivery Address</label>
-        <input type="text" id="address" class="w-full p-2 border rounded mb-4" placeholder="Enter your full address">
-        <label class="block mb-2">Note to Vendor (optional)</label>
-        <textarea id="note" class="w-full p-2 border rounded mb-6" placeholder="Any special instructions..."></textarea>
-        <div class="flex justify-end space-x-4">
-          <button id="cancel-checkout" class="bg-gray-500 text-white py-2 px-4 rounded">Cancel</button>
-          <button id="confirm-order" class="bg-primary text-white py-2 px-4 rounded">Place Order</button>
-        </div>
+  <!-- Checkout Modal -->
+  <div id="checkout-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
+    <div class="bg-white p-8 rounded-lg max-w-lg w-full">
+      <h2 class="text-2xl font-bold mb-6 text-primary">Checkout</h2>
+      <div id="cart-summary" class="mb-6"></div>
+      <p class="text-xl font-bold mb-4">Total: <span id="modal-total"># 0</span></p>
+      <label class="block mb-2">Delivery Address</label>
+      <input type="text" id="address" class="w-full p-2 border rounded mb-4" placeholder="Enter your full address">
+      <label class="block mb-2">Note to Vendor (optional)</label>
+      <textarea id="note" class="w-full p-2 border rounded mb-6" placeholder="Any special instructions..."></textarea>
+      <div class="flex justify-end space-x-4">
+        <button id="cancel-checkout" class="bg-gray-500 text-white py-2 px-4 rounded">Cancel</button>
+        <button id="confirm-order" class="bg-primary text-white py-2 px-4 rounded">Place Order</button>
       </div>
     </div>
-  </main>
+  </div>
 
   <script>
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -280,7 +340,7 @@
         });
         cartTotal.textContent = `# ${total.toLocaleString()}`;
         checkoutBtn.disabled = false;
-        cartCount.textContent = count;
+        cartCount.textContent = count.toString();
       }
       localStorage.setItem('cart', JSON.stringify(cart));
     }
@@ -355,6 +415,35 @@
         document.getElementById('checkout-modal').classList.add('hidden');
       })
       .catch(err => alert('Failed to place order: ' + err.message));
+    });
+
+    // Menu button
+    document.getElementById('menu-btn').addEventListener('click', () => {
+      document.getElementById('menu-drawer').classList.add('translate-x-0');
+    });
+
+    document.getElementById('close-menu').addEventListener('click', () => {
+      document.getElementById('menu-drawer').classList.remove('translate-x-0');
+    });
+
+    // Cart icon opens cart drawer
+    document.getElementById('cart-icon').addEventListener('click', () => {
+      document.getElementById('cart-drawer').classList.add('translate-x-0');
+    });
+
+    document.getElementById('close-cart').addEventListener('click', () => {
+      document.getElementById('cart-drawer').classList.remove('translate-x-0');
+    });
+
+    // Smooth scroll for menu links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+        document.getElementById('menu-drawer').classList.remove('translate-x-0');
+      });
     });
 
     updateCart(); // initial load
